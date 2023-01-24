@@ -11,4 +11,4 @@
 
 ```
 ### Пример работы с файлами форамата .json
-[![asciicast]( https://asciinema.org/a/0ytounzDB0uLewFHnI53fX1Gy.png)]
+https://asciinema.org/a/N7jm6sEGd9mqUJdi8AZ6io7oq
