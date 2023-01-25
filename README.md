@@ -3,6 +3,8 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/f2e2ca4f984049ff7e82/maintainability)](https://codeclimate.com/github/GeorgyKomkov/frontend-project-46/maintainability)
 
+[![Actions Status](https://github.com/GeorgyKomkov/frontend-project-46/actions/workflows/main.yml/badge.svg)](https://github.com/GeorgyKomkov/frontend-project-46/actions/workflows/main.yml)
+
 
  ### Проект "Вычислитель Отличий"
 Вычислитель отличий – проект, который по-настоящему прокачивает даже опытных разработчиков. Здесь вам придется столкнуться с принятием сложных архитектурных решений, автоматизированным тестированием и непрерывной интеграцией, функциональным программированием, работе с древовидными структурами данных и рекурсивными алгоритмами.
