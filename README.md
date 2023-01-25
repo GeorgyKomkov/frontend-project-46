@@ -1,7 +1,7 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/GeorgyKomkov/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/GeorgyKomkov/frontend-project-46/actions)
 
-[![Maintainability](https://codeclimate.com/github/GeorgyKomkov/frontend-project-46/maintainability)](https://api.codeclimate.com/v1/badges/f2e2ca4f984049ff7e82/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/f2e2ca4f984049ff7e82/maintainability)](https://codeclimate.com/github/GeorgyKomkov/frontend-project-46/maintainability)
 
 
  ### Проект "Вычислитель Отличий"
