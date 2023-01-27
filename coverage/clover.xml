@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1674824594779" clover="3.2.0">
-  <project timestamp="1674824594779" name="All files">
+<coverage generated="1674828460780" clover="3.2.0">
+  <project timestamp="1674828460780" name="All files">
     <metrics statements="19" coveredstatements="19" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3" elements="28" coveredelements="28" complexity="0" loc="19" ncloc="19" packages="1" files="2" classes="2"/>
     <file name="comparison.js" path="/mnt/c/Users/Гоша/Desktop/js/frontend-project-46/src/comparison.js">
       <metrics statements="15" coveredstatements="15" conditionals="6" coveredconditionals="6" methods="2" coveredmethods="2"/>
