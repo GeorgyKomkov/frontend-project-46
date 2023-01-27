@@ -5,6 +5,8 @@
 
 [![Node CI](https://github.com/GeorgyKomkov/frontend-project-46/actions/workflows/node.js.yml/badge.svg)](https://github.com/GeorgyKomkov/frontend-project-46/actions/workflows/node.js.yml)
 
+[![Test Coverage](https://api.codeclimate.com/v1/badges/f2e2ca4f984049ff7e82/test_coverage)](https://codeclimate.com/github/GeorgyKomkov/frontend-project-46/test_coverage)
+
 
  ### Проект "Вычислитель Отличий"
 Вычислитель отличий – проект, который по-настоящему прокачивает даже опытных разработчиков. Здесь вам придется столкнуться с принятием сложных архитектурных решений, автоматизированным тестированием и непрерывной интеграцией, функциональным программированием, работе с древовидными структурами данных и рекурсивными алгоритмами.
