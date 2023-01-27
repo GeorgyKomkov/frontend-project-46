@@ -3,7 +3,6 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/f2e2ca4f984049ff7e82/maintainability)](https://codeclimate.com/github/GeorgyKomkov/frontend-project-46/maintainability)
 
-[![Actions Status](https://github.com/GeorgyKomkov/frontend-project-46/actions/workflows/main.yml/badge.svg)](https://github.com/GeorgyKomkov/frontend-project-46/actions/workflows/main.yml)
 
 
  ### Проект "Вычислитель Отличий"
