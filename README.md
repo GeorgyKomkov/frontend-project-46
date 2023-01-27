@@ -13,8 +13,5 @@
   make install
 ```
 
- 
-
-```
 ### Пример работы с файлами форамата .json
 https://asciinema.org/a/N7jm6sEGd9mqUJdi8AZ6io7oq
