@@ -1,10 +1,10 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/GeorgyKomkov/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/GeorgyKomkov/frontend-project-46/actions)
-
+### Maintainability
 [![Maintainability](https://api.codeclimate.com/v1/badges/f2e2ca4f984049ff7e82/maintainability)](https://codeclimate.com/github/GeorgyKomkov/frontend-project-46/maintainability)
-
+###  Node CI
 [![Node CI](https://github.com/GeorgyKomkov/frontend-project-46/actions/workflows/node.js.yml/badge.svg)](https://github.com/GeorgyKomkov/frontend-project-46/actions/workflows/node.js.yml)
-
+### Test Coverage
 [![Test Coverage](https://api.codeclimate.com/v1/badges/f2e2ca4f984049ff7e82/test_coverage)](https://codeclimate.com/github/GeorgyKomkov/frontend-project-46/test_coverage)
 
 
