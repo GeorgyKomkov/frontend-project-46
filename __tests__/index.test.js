@@ -27,9 +27,7 @@ test('compare two flat files  extension .yaml / .yml', () => {
 });
 
 test('compare two flat files with unsupported extension', () => {
-  const result = genDiff(
-    getFixturePath('file2.yml'),
-    getFixturePath('file2.txt'),
-  );
-  expect(result).toThrow();
+  expect(() => {
+    genDiff(getFixturePath('file2.yml'), getFixturePath('file2.txt'));
+  }).toThrow(new Error('Unsupported file extension: \'.txt\'! Try another extension.'));
 });
