@@ -17,3 +17,10 @@
 
 ### Пример работы с файлами форамата .json
 [![asciicast](https://asciinema.org/a/N7jm6sEGd9mqUJdi8AZ6io7oq.png)]( https://asciinema.org/a/N7jm6sEGd9mqUJdi8AZ6io7oq)
+
+### Пример работы с файлами форамата .yaml / .yml
+
+
+### Пример работы с файлами форамата .yaml / .yml
+
+### Пример работы файлов с не поддерживаемыми форматами
