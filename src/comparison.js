@@ -3,8 +3,8 @@ import _ from 'lodash';
 const getComparison = (obj1, obj2) => {
   const keys1 = Object.keys(obj1);
   const keys2 = Object.keys(obj2);
-  const keys = _.union(keys1, keys2);
-  const sortedKeys = _.sortBy(keys);
+  // const keys = _.union(keys1, keys2);
+  const sortedKeys = _.sortBy(_.union(keys1, keys2));
   const result = sortedKeys.reduce((acc, key) => {
     if (!Object.hasOwn(obj1, key)) {
       acc.push(`  + ${key}: ${obj2[key]}`);
