@@ -19,8 +19,11 @@
 [![asciicast](https://asciinema.org/a/N7jm6sEGd9mqUJdi8AZ6io7oq.png)]( https://asciinema.org/a/N7jm6sEGd9mqUJdi8AZ6io7oq)
 
 ### Пример работы с файлами форамата .yaml / .yml
+[![asciicast](https://asciinema.org/a/F3uj0XumnroDU7hzjHMq02VaN.png)]( https://asciinema.org/a/F3uj0XumnroDU7hzjHMq02VaN)
 
-
-### Пример работы с файлами форамата .yaml / .yml
+### Пример работы с файлами фораматами .json & .yaml / .yml
+[![asciicast](https://asciinema.org/a/srIKr0tiYPIA3U74hUfxzBa3o.png)](https://asciinema.org/a/srIKr0tiYPIA3U74hUfxzBa3o)
 
 ### Пример работы файлов с не поддерживаемыми форматами
+
+[![asciicast](https://asciinema.org/a/3TNgcX3kMkXmMuFZiLDpmAYvk.png)](https://asciinema.org/a/3TNgcX3kMkXmMuFZiLDpmAYvk)
