@@ -27,3 +27,7 @@
 ### Пример работы файлов с не поддерживаемыми форматами
 
 [![asciicast](https://asciinema.org/a/3TNgcX3kMkXmMuFZiLDpmAYvk.png)](https://asciinema.org/a/3TNgcX3kMkXmMuFZiLDpmAYvk)
+
+### Пример работы файлов с вложенной структурой 
+
+[![asciicast](https://asciinema.org/a/VCayRUF2ZXKWx1KVhGTOe4DZQ.png)](https://asciinema.org/a/VCayRUF2ZXKWx1KVhGTOe4DZQ)
