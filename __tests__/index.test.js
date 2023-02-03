@@ -26,8 +26,26 @@ test('gendiff stylih .yaml / .yml', () => {
   expect(result).toEqual(excpectedResult);
 });
 
+test('gendiff plain, ext-json', () => {
+  const result = genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'plain');
+  const excpectedResult = readFile('correct_plain.txt');
+  expect(result).toEqual(excpectedResult);
+});
+
+test('gendiff plain, ext-json', () => {
+  const result = genDiff(getFixturePath('file1.yaml'), getFixturePath('file2.yml'), 'plain');
+  const excpectedResult = readFile('correct_plain.txt');
+  expect(result).toEqual(excpectedResult);
+});
+
 test('compare files with unsupported extension', () => {
   expect(() => {
     genDiff(getFixturePath('file2.yml'), getFixturePath('file2.txt'));
   }).toThrow(new Error('Unsupported file extension: \'.txt\'! Try another extension.'));
+});
+
+test('Using an unsupported format', () => {
+  expect(() => {
+    genDiff(getFixturePath('file1.yaml'), getFixturePath('file2.yml'), 'unsupported');
+  }).toThrow(new Error('Invalid format: \'unsupported\'! Use a different format.'));
 });
