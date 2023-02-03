@@ -21,7 +21,7 @@
     "jest": "^29.4.0",
     "mocha": "^10.2.0",
     "standard-version": "^9.5.0",
-    "watchd": "github:mklabs/watchd"
+
   },
   "bake": {
     "description": "Scaffold a basic ES6 setup",
