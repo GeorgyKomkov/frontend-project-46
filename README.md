@@ -36,6 +36,10 @@
 ### Пример работы файлов с форматом plain
 [![asciicast](https://asciinema.org/a/h5lxJWPt8YY8ek7KPbCEox0KB.png)](https://asciinema.org/a/h5lxJWPt8YY8ek7KPbCEox0KB)
 
+### Пример работы файлов с форматом json
+
+[![asciicast](https://asciinema.org/a/UTVxZZ7YqrGqkMvSA0rffYqnm.png)](https://asciinema.org/a/UTVxZZ7YqrGqkMvSA0rffYqnm)
+
 ### Пример работы файлов с не поддерживаемым раширением
 
 [![asciicast](https://asciinema.org/a/3TNgcX3kMkXmMuFZiLDpmAYvk.png)](https://asciinema.org/a/3TNgcX3kMkXmMuFZiLDpmAYvk)
