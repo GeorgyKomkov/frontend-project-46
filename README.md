@@ -21,28 +21,52 @@
 ```
 
 ### Пример работы простых файлов с раширением .json
+```
+  gendiff __fixtures__/file1.json __fixtures__/file2.json
+```
 [![asciicast](https://asciinema.org/a/N7jm6sEGd9mqUJdi8AZ6io7oq.png)]( https://asciinema.org/a/N7jm6sEGd9mqUJdi8AZ6io7oq)
 
 ### Пример работы простых файлов с раширением .yaml / .yml
+```
+  gendiff __fixtures__/file1.yaml __fixtures__/file2.yml
+```
 [![asciicast](https://asciinema.org/a/F3uj0XumnroDU7hzjHMq02VaN.png)]( https://asciinema.org/a/F3uj0XumnroDU7hzjHMq02VaN)
 
 ### Пример работы простых файлов с раширением.json & .yaml / .yml
+```
+  gendiff __fixtures__/file1.json __fixtures__/file2.yml
+```
+
 [![asciicast](https://asciinema.org/a/srIKr0tiYPIA3U74hUfxzBa3o.png)](https://asciinema.org/a/srIKr0tiYPIA3U74hUfxzBa3o)
 
 ### Пример работы файлов с форматом stylish
-
+```
+  gendiff __fixtures__/file1.json __fixtures__/file2.json
+```
 [![asciicast](https://asciinema.org/a/VCayRUF2ZXKWx1KVhGTOe4DZQ.png)](https://asciinema.org/a/VCayRUF2ZXKWx1KVhGTOe4DZQ)
 
 ### Пример работы файлов с форматом plain
+```
+  gendiff -f plain __fixtures__/file1.json __fixtures__/file2.json
+```
 [![asciicast](https://asciinema.org/a/h5lxJWPt8YY8ek7KPbCEox0KB.png)](https://asciinema.org/a/h5lxJWPt8YY8ek7KPbCEox0KB)
 
 ### Пример работы файлов с форматом json
+```
+  gendiff -f json __fixtures__/file1.json __fixtures__/file2.json
+```
 
 [![asciicast](https://asciinema.org/a/UTVxZZ7YqrGqkMvSA0rffYqnm.png)](https://asciinema.org/a/UTVxZZ7YqrGqkMvSA0rffYqnm)
 
 ### Пример работы файлов с не поддерживаемым раширением
+```
+  gendiff __fixtures__/file1.json __fixtures__/file2.txt
+```
 
 [![asciicast](https://asciinema.org/a/3TNgcX3kMkXmMuFZiLDpmAYvk.png)](https://asciinema.org/a/3TNgcX3kMkXmMuFZiLDpmAYvk)
 
 ### Пример работы файлов с не поддерживаемым форматом
+```
+  gendiff -f aa __fixtures__/file1.json __fixtures__/file2.json
+```
 [![asciicast](https://asciinema.org/a/214SZToTqFH6L5xie63z0PxMv.png)](https://asciinema.org/a/214SZToTqFH6L5xie63z0PxMv)
