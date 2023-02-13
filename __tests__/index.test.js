@@ -11,35 +11,34 @@ const readFile = (filename) => readFileSync(getFixturePath(filename), 'utf-8');
 const excpectedStylish = readFile('correct_stylish.txt');
 const excpectedPlain = readFile('correct_plain.txt');
 const excpectedJson = readFile('correct_json.txt');
-const resultFormStylExtJson = genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'));
-const resultFormPlainExtJson = genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'plain');
-const resultFormJsonExtJson = genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'json');
-const resultFormStylExtYaml = genDiff(getFixturePath('file1.yaml'), getFixturePath('file2.yml'));
-const resyltFormPlainExtYaml = genDiff(getFixturePath('file1.yaml'), getFixturePath('file2.yml'), 'plain');
-const resultFormJsonExtYaml = genDiff(getFixturePath('file1.yaml'), getFixturePath('file2.yml'), 'json');
-const resultFormStylExtJsonYaml = genDiff(getFixturePath('file1.json'), getFixturePath('file2.yml'));
-const resultFormPlainExtJsonYaml = genDiff(getFixturePath('file1.json'), getFixturePath('file2.yml'), 'plain');
-const resultFormJsonExtJsonYaml = genDiff(getFixturePath('file1.json'), getFixturePath('file2.yml'), 'json');
 
 describe('comparison', () => {
-  test('json & yaml/yml', () => {
-    expect(resultFormStylExtJson).toEqual(excpectedStylish);
-    expect(resultFormPlainExtJson).toEqual(excpectedPlain);
-    expect(resultFormJsonExtJson).toEqual(excpectedJson);
-    expect(resultFormStylExtYaml).toEqual(excpectedStylish);
-    expect(resyltFormPlainExtYaml).toEqual(excpectedPlain);
-    expect(resultFormJsonExtYaml).toEqual(excpectedJson);
-    expect(resultFormStylExtJsonYaml).toEqual(excpectedStylish);
-    expect(resultFormPlainExtJsonYaml).toEqual(excpectedPlain);
-    expect(resultFormJsonExtJsonYaml).toEqual(excpectedJson);
+  test('json', () => {
+    const filepath1 = getFixturePath('file1.json');
+    const filepath2 = getFixturePath('file2.json');
+
+    expect(genDiff(filepath1, filepath2)).toEqual(excpectedStylish);
+    expect(genDiff(filepath1, filepath2, 'stylish')).toEqual(excpectedStylish);
+    expect(genDiff(filepath1, filepath2, 'plain')).toEqual(excpectedPlain);
+    expect(genDiff(filepath1, filepath2, 'json')).toEqual(excpectedJson);
+  });
+
+  test('yaml/yml', () => {
+    const filepath1 = getFixturePath('file1.yaml');
+    const filepath2 = getFixturePath('file2.yml');
+
+    expect(genDiff(filepath1, filepath2)).toEqual(excpectedStylish);
+    expect(genDiff(filepath1, filepath2, 'stylish')).toEqual(excpectedStylish);
+    expect(genDiff(filepath1, filepath2, 'plain')).toEqual(excpectedPlain);
+    expect(genDiff(filepath1, filepath2, 'json')).toEqual(excpectedJson);
   });
 
   test('the presence of an error', () => {
-    expect(() => {
-      genDiff(getFixturePath('file2.yml'), getFixturePath('file2.txt'));
-    }).toThrow(new Error('Unsupported file extension: \'.txt\'! Try another extension.'));
-    expect(() => {
-      genDiff(getFixturePath('file1.yaml'), getFixturePath('file2.yml'), 'unsupported');
-    }).toThrow(new Error('Invalid format: \'unsupported\'! Use a different format.'));
+    const filepath1 = getFixturePath('file1.yaml');
+    const filepath2 = getFixturePath('file2.yml');
+    const filepath3 = getFixturePath('file2.txt');
+
+    expect(() => genDiff(filepath2, filepath3)).toThrow(new Error('Unsupported file extension: \'.txt\'! Try another extension.'));
+    expect(() => genDiff(filepath1, filepath2, 'unsupported')).toThrow(new Error('Invalid format: \'unsupported\'! Use a different format.'));
   });
 });
