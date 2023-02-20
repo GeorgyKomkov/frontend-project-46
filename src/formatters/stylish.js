@@ -25,7 +25,7 @@ const getStylish = (diff, replacer = '    ') => {
     const indentForSign = indent.slice(2);
     const getLine = (value, mark) => `${indentForSign}${mark} ${node.key}: ${stringify(value, depth, replacer)}`;
 
-    switch (node.state) {
+    switch (node.type) {
       case 'added':
         return getLine(node.value, sign.added);
       case 'deleted':
@@ -38,7 +38,7 @@ const getStylish = (diff, replacer = '    ') => {
       case 'nested':
         return `${indent}${node.key}: ${['{', ...iter(node.value, depth + 1), `${indent}}`].join('\n')}`;
       default:
-        throw new Error(`Type: ${node.state} is undefined`);
+        throw new Error(`Type: ${node.type} is undefined`);
     }
   });
 

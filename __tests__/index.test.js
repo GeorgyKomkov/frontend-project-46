@@ -38,7 +38,7 @@ describe('comparison', () => {
     const filepath2 = getFixturePath('file2.yml');
     const filepath3 = getFixturePath('file2.txt');
 
-    expect(() => genDiff(filepath2, filepath3)).toThrow(new Error('Unsupported file extension: \'.txt\'! Try another extension.'));
+    expect(() => genDiff(filepath2, filepath3)).toThrow(new Error('Unsupported file format: \'.txt\'! Try another format.'));
     expect(() => genDiff(filepath1, filepath2, 'unsupported')).toThrow(new Error('Invalid format: \'unsupported\'! Use a different format.'));
   });
 });

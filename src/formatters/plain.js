@@ -12,7 +12,7 @@ const getPlain = (diff) => {
   const iter = (tree, parent) => tree.flatMap((node) => {
     const path = [...parent, node.key].join('.');
 
-    switch (node.state) {
+    switch (node.type) {
       case 'added':
         return `Property '${path}' was added with value: ${stringify(node.value)}`;
       case 'deleted':
@@ -24,7 +24,7 @@ const getPlain = (diff) => {
       case 'nested':
         return `${iter(node.value, [path]).join('\n')}`;
       default:
-        throw new Error(`Type: ${node.state} is undefined`);
+        throw new Error(`Type: ${node.type} is undefined`);
     }
   });
 
