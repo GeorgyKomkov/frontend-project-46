@@ -1,6 +1,5 @@
 import getStylish from './stylish.js';
 import getPlain from './plain.js';
-import getJson from './json.js';
 
 const getReport = (data, format, replacer) => {
   switch (format) {
@@ -9,7 +8,7 @@ const getReport = (data, format, replacer) => {
     case 'plain':
       return getPlain(data, replacer);
     case 'json':
-      return getJson(data, null, replacer);
+      return JSON.stringify(data, null, replacer);
     default:
       throw new Error(`Invalid format: '${format}'! Use a different format.`);
   }
