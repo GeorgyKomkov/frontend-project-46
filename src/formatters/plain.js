@@ -22,7 +22,7 @@ const getPlain = (diff) => {
       case 'changed':
         return `Property '${path}' was updated. From ${stringify(node.value1)} to ${stringify(node.value2)}`;
       case 'nested':
-        return `${iter(node.value, [path]).join('\n')}`;
+        return `${iter(node.children, [path]).join('\n')}`;
       default:
         throw new Error(`Type: ${node.type} is undefined`);
     }
