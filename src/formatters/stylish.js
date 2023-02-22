@@ -1,47 +1,36 @@
 import _ from 'lodash';
 
+const indent = (depth, replacer = '    ') => replacer.repeat(depth);
+
 const stringify = (data, depth, replacer) => {
   if (!_.isObject(data)) {
     return `${data}`;
   }
-
-  const indentForKey = replacer.repeat(depth + 1);
-  const indentForBracket = replacer.repeat(depth);
   const result = Object.entries(data)
-    .map(([key, value]) => `${indentForKey}${key}: ${stringify(value, depth + 1, replacer)}`);
+    .map(([key, value]) => `${indent(depth + 1, replacer)}${key}: ${stringify(value, depth + 1, replacer)}`);
 
-  return ['{', ...result, `${indentForBracket}}`].join('\n');
+  return ['{', ...result, `${indent(depth, replacer)}}`].join('\n');
 };
 
-const sign = {
-  added: '+',
-  deleted: '-',
-  unchanged: ' ',
-};
+const iter = (tree, depth, replacer = '    ') => tree.map((node) => {
+  switch (node.type) {
+    case 'added':
+      return `${indent(depth, replacer).slice(2)}+ ${node.key}: ${stringify(node.value, depth, replacer)}`;
+    case 'deleted':
+      return `${indent(depth, replacer).slice(2)}- ${node.key}: ${stringify(node.value, depth, replacer)}`;
+    case 'notChanged':
+      return `${indent(depth, replacer).slice(2)}  ${node.key}: ${stringify(node.value, depth, replacer)}`;
+    case 'changed':
+      return [`${indent(depth, replacer).slice(2)}- ${node.key}: ${stringify(node.value1, depth, replacer)}`,
+        `${indent(depth, replacer).slice(2)}+ ${node.key}: ${stringify(node.value2, depth, replacer)}`].join('\n');
+    case 'nested':
+      return `${indent(depth, replacer)}${node.key}: ${['{', ...iter(node.children, depth + 1), `${indent(depth, replacer)}}`].join('\n')}`;
+    default:
+      throw new Error(`Type: ${node.type} is undefined`);
+  }
+});
 
-const getStylish = (diff, replacer = '    ') => {
-  const iter = (tree, depth) => tree.map((node) => {
-    const indent = replacer.repeat(depth);
-    const indentForSign = indent.slice(2);
-    const getLine = (value, mark) => `${indentForSign}${mark} ${node.key}: ${stringify(value, depth, replacer)}`;
-
-    switch (node.type) {
-      case 'added':
-        return getLine(node.value, sign.added);
-      case 'deleted':
-        return getLine(node.value, sign.deleted);
-      case 'notChanged':
-        return getLine(node.value, sign.unchanged);
-      case 'changed':
-        return [`${getLine(node.value1, sign.deleted)}`,
-          `${getLine(node.value2, sign.added)}`].join('\n');
-      case 'nested':
-        return `${indent}${node.key}: ${['{', ...iter(node.children, depth + 1), `${indent}}`].join('\n')}`;
-      default:
-        throw new Error(`Type: ${node.type} is undefined`);
-    }
-  });
-
+const getStylish = (diff) => {
   const stylishDiff = iter(diff, 1);
   return ['{', ...stylishDiff, '}'].join('\n');
 };

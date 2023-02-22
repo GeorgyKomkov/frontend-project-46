@@ -6,9 +6,9 @@ import getReport from './formatters/index.js';
 
 const buildFullPath = (filepath) => path.resolve(process.cwd(), filepath);
 const extractFormat = (filepath) => path.extname(filepath);
-const getData = (filepath) => {
-  const patch = buildFullPath(filepath);
-  return parse(fs.readFileSync(patch), extractFormat(filepath));
+const getData = (fullPath) => {
+  const patch = buildFullPath(fullPath);
+  return parse(fs.readFileSync(patch), extractFormat(fullPath));
 };
 
 const genDiff = (filepath1, filepath2, format = 'stylish') => {
