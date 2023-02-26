@@ -1,30 +1,33 @@
+/* eslint-disable max-len */
+/* eslint-disable no-case-declarations */
 import _ from 'lodash';
 
-const indent = (depth, replacer = '    ') => replacer.repeat(depth);
+const indent = (depth) => '    '.repeat(depth);
 
-const stringify = (data, depth, replacer) => {
+const stringify = (data, depth) => {
   if (!_.isObject(data)) {
-    return `${data}`;
+    return String(data);
   }
   const result = Object.entries(data)
-    .map(([key, value]) => `${indent(depth + 1, replacer)}${key}: ${stringify(value, depth + 1, replacer)}`);
+    .map(([key, value]) => `${indent(depth + 1)}${key}: ${stringify(value, depth + 1)}`);
 
-  return ['{', ...result, `${indent(depth, replacer)}}`].join('\n');
+  return `${'{'}\n${result.flat().join('\n')}\n${indent(depth)}${'}'}`;
 };
 
-const iter = (tree, depth, replacer = '    ') => tree.map((node) => {
+const iter = (tree, depth) => tree.map((node) => {
   switch (node.type) {
     case 'added':
-      return `${indent(depth, replacer).slice(2)}+ ${node.key}: ${stringify(node.value, depth, replacer)}`;
+      return `${indent(depth).slice(2)}+ ${node.key}: ${stringify(node.value, depth)}`;
     case 'deleted':
-      return `${indent(depth, replacer).slice(2)}- ${node.key}: ${stringify(node.value, depth, replacer)}`;
+      return `${indent(depth).slice(2)}- ${node.key}: ${stringify(node.value, depth)}`;
     case 'notChanged':
-      return `${indent(depth, replacer).slice(2)}  ${node.key}: ${stringify(node.value, depth, replacer)}`;
+      return `${indent(depth).slice(2)}  ${node.key}: ${stringify(node.value, depth)}`;
     case 'changed':
-      return [`${indent(depth, replacer).slice(2)}- ${node.key}: ${stringify(node.value1, depth, replacer)}`,
-        `${indent(depth, replacer).slice(2)}+ ${node.key}: ${stringify(node.value2, depth, replacer)}`].join('\n');
+      const output1 = `${indent(depth).slice(2)}- ${node.key}: ${stringify(node.value1, depth)}`;
+      const output2 = `${indent(depth).slice(2)}+ ${node.key}: ${stringify(node.value2, depth)}`;
+      return `${output1}\n${output2}`;
     case 'nested':
-      return `${indent(depth, replacer)}${node.key}: ${['{', ...iter(node.children, depth + 1), `${indent(depth, replacer)}}`].join('\n')}`;
+      return `${indent(depth)}${node.key}: ${'{'}\n${iter(node.children, depth + 1).flat().join('\n')}\n${indent(depth)}${'}'}`;
     default:
       throw new Error(`Type: ${node.type} is undefined`);
   }
@@ -32,7 +35,7 @@ const iter = (tree, depth, replacer = '    ') => tree.map((node) => {
 
 const getStylish = (diff) => {
   const stylishDiff = iter(diff, 1);
-  return ['{', ...stylishDiff, '}'].join('\n');
+  return `${'{'}\n${stylishDiff.flat().join('\n')}\n${'}'}`;
 };
 
 export default getStylish;

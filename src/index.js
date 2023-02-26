@@ -4,11 +4,11 @@ import buildTree from './buildTree.js';
 import parse from './parses.js';
 import getReport from './formatters/index.js';
 
-const buildFullPath = (filepath) => path.resolve(process.cwd(), filepath);
+const fullPath = (filepath) => path.resolve(process.cwd(), filepath);
 const extractFormat = (filepath) => path.extname(filepath);
-const getData = (fullPath) => {
-  const patch = buildFullPath(fullPath);
-  return parse(fs.readFileSync(patch), extractFormat(fullPath));
+const getData = (filepath) => {
+  const patch = fullPath(filepath);
+  return parse(fs.readFileSync(patch), extractFormat(filepath));
 };
 
 const genDiff = (filepath1, filepath2, format = 'stylish') => {
