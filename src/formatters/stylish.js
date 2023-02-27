@@ -2,7 +2,12 @@
 /* eslint-disable no-case-declarations */
 import _ from 'lodash';
 
-const indent = (depth) => '    '.repeat(depth);
+const indent = (depth, isFull = false) => {
+  if (isFull) {
+    return ' '.repeat(4 * depth).slice(2);
+  }
+  return ' '.repeat(4 * depth);
+};
 
 const stringify = (data, depth) => {
   if (!_.isObject(data)) {
@@ -17,14 +22,14 @@ const stringify = (data, depth) => {
 const iter = (tree, depth) => tree.map((node) => {
   switch (node.type) {
     case 'added':
-      return `${indent(depth).slice(2)}+ ${node.key}: ${stringify(node.value, depth)}`;
+      return `${indent(depth, true)}+ ${node.key}: ${stringify(node.value, depth)}`;
     case 'deleted':
-      return `${indent(depth).slice(2)}- ${node.key}: ${stringify(node.value, depth)}`;
+      return `${indent(depth, true)}- ${node.key}: ${stringify(node.value, depth)}`;
     case 'notChanged':
-      return `${indent(depth).slice(2)}  ${node.key}: ${stringify(node.value, depth)}`;
+      return `${indent(depth, true)}  ${node.key}: ${stringify(node.value, depth)}`;
     case 'changed':
-      const output1 = `${indent(depth).slice(2)}- ${node.key}: ${stringify(node.value1, depth)}`;
-      const output2 = `${indent(depth).slice(2)}+ ${node.key}: ${stringify(node.value2, depth)}`;
+      const output1 = `${indent(depth, true)}- ${node.key}: ${stringify(node.value1, depth)}`;
+      const output2 = `${indent(depth, true)}+ ${node.key}: ${stringify(node.value2, depth)}`;
       return `${output1}\n${output2}`;
     case 'nested':
       return `${indent(depth)}${node.key}: ${'{'}\n${iter(node.children, depth + 1).flat().join('\n')}\n${indent(depth)}${'}'}`;

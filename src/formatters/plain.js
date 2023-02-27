@@ -10,18 +10,17 @@ const stringify = (value) => {
   return String(value);
 };
 const iter = (tree, parent) => tree.flatMap((node) => {
-  const path = [...parent, node.key].join('.');
   switch (node.type) {
     case 'added':
-      return `Property '${path}' was added with value: ${stringify(node.value)}`;
+      return `Property '${[...parent, node.key].join('.')}' was added with value: ${stringify(node.value)}`;
     case 'deleted':
-      return `Property '${path}' was removed`;
+      return `Property '${[...parent, node.key].join('.')}' was removed`;
     case 'notChanged':
       return [];
     case 'changed':
-      return `Property '${path}' was updated. From ${stringify(node.value1)} to ${stringify(node.value2)}`;
+      return `Property '${[...parent, node.key].join('.')}' was updated. From ${stringify(node.value1)} to ${stringify(node.value2)}`;
     case 'nested':
-      return `${iter(node.children, [path]).join('\n')}`;
+      return `${iter(node.children, [[...parent, node.key].join('.')]).join('\n')}`;
     default:
       throw new Error(`Type: ${node.type} is undefined`);
   }
